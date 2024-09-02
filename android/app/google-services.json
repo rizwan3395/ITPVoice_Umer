@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "876937112371",
+    "project_id": "itpvoice-9ea83",
+    "storage_bucket": "itpvoice-9ea83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876937112371:android:31c76c9220110d4d92ec46",
+        "android_client_info": {
+          "package_name": "com.appicator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCAq0MQoIL_cjOaoNCKv3hRhYBv5DQ_xI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876937112371:android:1f308b6fb95f064892ec46",
+        "android_client_info": {
+          "package_name": "com.appicator.itp_voice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCAq0MQoIL_cjOaoNCKv3hRhYBv5DQ_xI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android' 
+    id "com.google.gms.google-services" // Firebase plugin
+    id 'dev.flutter.flutter-gradle-plugin'  // Flutter plugin
+}
+
+android {
+    namespace = "com.example.itp_voice"
+    compileSdk = 33
+    // ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.appicator.itp_voice"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+    
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.1.1') // Firebase BoM
+    implementation "androidx.fragment:fragment:1.3.6"
+    implementation 'com.google.firebase:firebase-analytics' // Firebase Analytics
+    
+    // Add other Firebase dependencies here as needed
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name.startsWith('process') && task.name.endsWith('GoogleServices')) {
+        task.dependsOn 'preBuild'
+    }
+}
