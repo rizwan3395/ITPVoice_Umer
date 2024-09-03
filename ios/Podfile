@@ -6,7 +6,7 @@ target 'Runner' do
 
   # Pods for Runner
   pod 'Firebase/Core'
-  pod 'audio_service'
+  
   # Add any other necessary pods here
 
 end
