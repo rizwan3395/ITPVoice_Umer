@@ -6,9 +6,16 @@ plugins {
     id 'dev.flutter.flutter-gradle-plugin'  // Flutter plugin
 }
 
+<<<<<<< HEAD
 android {
     namespace = "com.example.itp_voice"
     compileSdk = 33
+=======
+
+android {
+    namespace = "com.appicator.itp_voice"
+    compileSdk = 34
+>>>>>>> 24b9f78d (Added support for android 14)
     // ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -16,6 +23,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+<<<<<<< HEAD
+=======
+
+    signingConfigs {
+        release {
+            keyAlias "upload"
+            keyPassword "itpvoice0000"
+            storeFile file("/home/umer/My Data/Learnings/pp/itp_voice/upload-keystore.jks")
+            storePassword "itpvoice0000"
+        }
+    }
+
+>>>>>>> 24b9f78d (Added support for android 14)
     kotlinOptions {
         jvmTarget = "17"
     }
@@ -23,14 +43,24 @@ android {
     defaultConfig {
         applicationId = "com.appicator.itp_voice"
         minSdkVersion 23
+<<<<<<< HEAD
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
+=======
+        targetSdkVersion 34
+        versionCode 14
+        versionName "1.1.1"
+>>>>>>> 24b9f78d (Added support for android 14)
     }
 
     buildTypes {
         release {
+<<<<<<< HEAD
             signingConfig = signingConfigs.debug
+=======
+            signingConfig signingConfigs.release
+>>>>>>> 24b9f78d (Added support for android 14)
         }
     }
 }
