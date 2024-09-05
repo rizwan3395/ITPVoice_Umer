@@ -476,14 +476,4 @@ class CallScreen extends StatelessWidget {
     );
   }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
-
-
-
-
->>>>>>> 24b9f78d (Added support for android 14)
->>>>>>> b1482309 (added ios file)
