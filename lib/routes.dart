@@ -14,6 +14,8 @@ import 'package:itp_voice/screens/edit_contact_screen.dart';
 import 'package:itp_voice/screens/in_call_dialpad.dart';
 import 'package:itp_voice/screens/login_screen.dart';
 import 'package:itp_voice/screens/settings_screen.dart';
+import 'package:itp_voice/screens/signup_screen.dart';
+import 'package:itp_voice/screens/verification_screen.dart';
 import 'package:itp_voice/screens/voice_mail_details_screen.dart';
 
 class AppRoutes {
@@ -69,6 +71,14 @@ class AppRoutes {
       name: Routes.CHAT_DETAIL_ROUTE,
       page: () => ChatInfoScreen(),
     ),
+    GetPage(
+      name: Routes.SIGNUP_SCREEN_ROUTE,
+      page: () => SignupScreen(),
+    ),
+    GetPage(
+      name: Routes.VERIFY_OTP_ROUTE,
+      page: () => VerificationScreen(),
+    ),
   ];
 }
 
@@ -87,6 +97,8 @@ class Routes {
   static String DIALPAD_SCREEN_ROUTE = '/dialpad_screen_route';
   static String EDIT_CONTACT_ROUTE = '/edit_contact_screen_route';
   static String CHAT_DETAIL_ROUTE = '/chat_detail_screen_route';
+  static String SIGNUP_SCREEN_ROUTE = '/sign_up_screen_route';
+  static String VERIFY_OTP_ROUTE = '/verification_screen_route';
 }
 
 class Endpoints {

@@ -74,6 +74,7 @@ dependencies:
   cloud_firestore: ^5.3.0
   firebase_auth: ^5.2.0
   just_audio: ^0.9.40
+  pinput: ^5.0.0
   # flutter_pjsip: ^0.0.2-dev.2
 
 dev_dependencies:
@@ -142,6 +143,8 @@ flutter:
         - asset: assets/fonts/NotoSans-Regular.ttf
           weight: 400
         - asset: assets/fonts/NotoSans-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
           weight: 300
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

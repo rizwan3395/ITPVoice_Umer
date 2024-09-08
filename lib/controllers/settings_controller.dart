@@ -16,7 +16,8 @@ class SettingsController extends GetxController {
 
   RxBool isLoading = false.obs;
 
-  RxBool isDark = false.obs;
+  RxBool isDark = true.obs;
+
 
   updateNumber() async {
     try {

@@ -14,6 +14,7 @@ import 'package:itp_voice/routes.dart';
 import 'package:itp_voice/screens/base_screen.dart';
 import 'package:itp_voice/screens/login_screen.dart';
 import 'package:itp_voice/widgets/custom_toast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sip_ua/sip_ua.dart';
 import 'package:timezone/data/latest_all.dart';
 
@@ -29,7 +30,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   setupLocator();
+   // Initialize SharedPreferences before the app starts
+  await Get.putAsync(() async => await SharedPreferences.getInstance());
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   LocalNotificationService.initialize();
   initializeTimeZones();
@@ -53,8 +57,8 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Nato Sans',
           ),
           child: GetMaterialApp(
-            title: 'ITP Voice',
             initialBinding: Binding(),
+            title: 'ITP Voice',
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode: ThemeMode.light,

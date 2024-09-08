@@ -686,6 +686,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pinput",
+      "rootUri": "file:///home/umer/.pub-cache/hosted/pub.dev/pinput-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///home/umer/.pub-cache/hosted/pub.dev/platform-3.1.5",
       "packageUri": "lib/",
@@ -878,6 +884,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "universal_platform",
+      "rootUri": "file:///home/umer/.pub-cache/hosted/pub.dev/universal_platform-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "uuid",
       "rootUri": "file:///home/umer/.pub-cache/hosted/pub.dev/uuid-4.5.0",
       "packageUri": "lib/",
@@ -968,7 +980,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-09-03T04:36:33.736440Z",
+  "generated": "2024-09-08T11:38:35.659747Z",
   "generator": "pub",
   "generatorVersion": "3.5.1",
   "flutterRoot": "file:///home/umer/essentials/flutter_linux_3.24.1-stable/flutter",
