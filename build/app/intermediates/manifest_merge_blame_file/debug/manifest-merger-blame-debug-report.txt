@@ -1,0 +1,757 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.appicator.itp_voice"
+4    android:versionCode="14"
+5    android:versionName="1.1.1" >
+6
+7    <uses-sdk
+7-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:11:2-56
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:9:1-62
+15-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:9:18-60
+16    <uses-permission android:name="android.hardware.sensor.proximity" />
+16-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:5:1-68
+16-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:5:18-66
+17    <uses-permission android:name="android.permission.BODY_SENSORS" />
+17-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:6:1-66
+17-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:6:18-64
+18    <uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND" />
+18-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:7:1-77
+18-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:7:18-75
+19    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" /> <!-- Add this -->
+19-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:8:1-74
+19-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:8:18-72
+20    <uses-feature
+20-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:14:1-79
+21        android:name="android.hardware.camera"
+21-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:14:15-53
+22        android:required="true" />
+22-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:14:54-77
+23    <uses-feature android:name="android.hardware.camera.autofocus" />
+23-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:15:1-65
+23-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:15:15-63
+24
+25    <uses-permission android:name="android.permission.CAMERA" />
+25-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:16:1-60
+25-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:16:18-58
+26    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+26-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:17:1-66
+26-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:17:18-64
+27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+27-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:18:1-74
+27-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:18:18-72
+28    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+28-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:19:1-74
+28-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:19:18-72
+29    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+29-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:18:1-74
+29-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:18:18-72
+30    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+30-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:22:1-71
+30-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:22:18-69
+31    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+31-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:23:1-75
+31-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:23:18-73
+32    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+32-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:24:1-72
+32-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:24:18-70
+33    <uses-permission android:name="android.permission.WAKE_LOCK" />
+33-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:25:1-63
+33-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:25:18-61
+34    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+34-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:26:1-75
+34-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:26:18-73
+35    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+35-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:27:1-75
+35-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:27:18-73
+36    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+36-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:28:1-76
+36-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:28:18-74
+37    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+37-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:29:1-79
+37-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:29:18-75
+38    <uses-permission
+38-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:30:1-63
+39        android:name="android.permission.BLUETOOTH"
+39-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:30:18-61
+40        android:maxSdkVersion="30" />
+40-->[com.github.davidliu:audioswitch:89582c47c9a04c62f90aa5e57251af4800a62c9a] /home/umer/.gradle/caches/transforms-4/2ce1437b7fdbb3d46fbd3cdf3e3f65a8/transformed/jetified-audioswitch-89582c47c9a04c62f90aa5e57251af4800a62c9a/AndroidManifest.xml:11:9-35
+41    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+41-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:31:1-69
+41-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:31:18-67
+42    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+42-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:32:1-76
+42-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:32:18-74
+43    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> <!-- Permissions options for the `notification` group -->
+43-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:33:1-71
+43-->/home/umer/My Data/Learnings/pp/itp_voice/android/app/src/main/AndroidManifest.xml:33:18-69
+44    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+44-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-77
+44-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:13:22-74
+45    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+45-->[:flutter_local_notifications] /home/umer/My Data/Learnings/pp/itp_voice/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-66
+45-->[:flutter_local_notifications] /home/umer/My Data/Learnings/pp/itp_voice/build/flutter_local_notifications/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-63
+46    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+46-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:26:5-82
+46-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:26:22-79
+47    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+47-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:25:5-79
+47-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:25:22-76
+48    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+48-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:26:5-88
+48-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:26:22-85
+49    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+49-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:27:5-82
+49-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:27:22-79
+50
+51    <queries>
+51-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:24:5-34:15
+52        <intent>
+52-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:25:9-27:18
+53            <action android:name="android.media.browse.MediaBrowserService" />
+53-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:13-79
+53-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:21-76
+54        </intent>
+55        <intent>
+55-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:28:9-30:18
+56            <action android:name="androidx.media2.session.MediaSessionService" />
+56-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:29:13-82
+56-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:29:21-79
+57        </intent>
+58        <intent>
+58-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:31:9-33:18
+59            <action android:name="androidx.media2.session.MediaLibraryService" />
+59-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:32:13-82
+59-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:32:21-79
+60        </intent>
+61    </queries>
+62
+63    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+63-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:26:5-110
+63-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:26:22-107
+64    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+64-->[com.google.android.recaptcha:recaptcha:18.4.0] /home/umer/.gradle/caches/transforms-4/3ca7994e01067bf32ec2b268cf9c96da/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:5-98
+64-->[com.google.android.recaptcha:recaptcha:18.4.0] /home/umer/.gradle/caches/transforms-4/3ca7994e01067bf32ec2b268cf9c96da/transformed/jetified-recaptcha-18.4.0/AndroidManifest.xml:9:22-95
+65
+66    <permission
+66-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+67        android:name="com.appicator.itp_voice.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+67-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+68        android:protectionLevel="signature" />
+68-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+69
+70    <uses-permission android:name="com.appicator.itp_voice.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+70-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+70-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+71
+72    <application
+73        android:name="android.app.Application"
+74        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+74-->[androidx.core:core:1.13.1] /home/umer/.gradle/caches/transforms-4/d30b83433699ceac357f900fd797aedd/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+75        android:debuggable="true"
+76        android:extractNativeLibs="false"
+77        android:icon="@mipmap/ic_launcher"
+78        android:label="VOICE360"
+79        android:requestLegacyExternalStorage="true" >
+80        <activity
+81            android:name="com.appicator.itp_voice.MainActivity"
+82            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+83            android:exported="true"
+84            android:hardwareAccelerated="true"
+85            android:launchMode="singleTop"
+86            android:theme="@style/LaunchTheme"
+87            android:windowSoftInputMode="adjustResize" >
+88
+89            <!--
+90      Specifies an Android theme to apply to this Activity as soon as
+91                 the Android process has started. This theme is visible to the user
+92                 while the Flutter UI initializes. After that, this theme continues
+93                 to determine the Window background behind the Flutter UI.
+94            -->
+95            <meta-data
+96                android:name="io.flutter.embedding.android.NormalTheme"
+97                android:resource="@style/NormalTheme" />
+98            <meta-data
+99                android:name="com.google.firebase.messaging.default_notification_channel_id"
+100                android:value="itpvoice" />
+101
+102            <intent-filter>
+103                <action android:name="android.intent.action.MAIN" />
+104
+105                <category android:name="android.intent.category.LAUNCHER" />
+106            </intent-filter>
+107            <intent-filter>
+108                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+109
+110                <category android:name="android.intent.category.DEFAULT" />
+110-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+110-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+111            </intent-filter>
+112        </activity>
+113
+114        <!-- ADD THIS "SERVICE" element -->
+115        <service
+116            android:name="com.ryanheise.audioservice.AudioService"
+117            android:exported="true" >
+118            <intent-filter>
+119                <action android:name="android.media.browse.MediaBrowserService" />
+119-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:13-79
+119-->[androidx.media2:media2-session:1.2.1] /home/umer/.gradle/caches/transforms-4/f8cfaf86eeaa9d86b78c8f79d0b3848a/transformed/jetified-media2-session-1.2.1/AndroidManifest.xml:26:21-76
+120            </intent-filter>
+121        </service>
+122
+123        <receiver
+124            android:name="com.ryanheise.audioservice.MediaButtonReceiver"
+125            android:exported="true" >
+126            <intent-filter>
+127                <action android:name="android.intent.action.MEDIA_BUTTON" />
+128            </intent-filter>
+129        </receiver>
+130
+131        <!--
+132      Don't delete the meta-data below.
+133             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+134        -->
+135        <meta-data
+136            android:name="flutterEmbedding"
+137            android:value="2" />
+138
+139        <service
+139-->[:cloud_firestore] /home/umer/My Data/Learnings/pp/itp_voice/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+140            android:name="com.google.firebase.components.ComponentDiscoveryService"
+140-->[:cloud_firestore] /home/umer/My Data/Learnings/pp/itp_voice/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+141            android:directBootAware="true"
+141-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+142            android:exported="false" >
+142-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:16:13-37
+143            <meta-data
+143-->[:cloud_firestore] /home/umer/My Data/Learnings/pp/itp_voice/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+144                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+144-->[:cloud_firestore] /home/umer/My Data/Learnings/pp/itp_voice/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
+145                android:value="com.google.firebase.components.ComponentRegistrar" />
+145-->[:cloud_firestore] /home/umer/My Data/Learnings/pp/itp_voice/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+146            <meta-data
+146-->[:firebase_auth] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+147                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+147-->[:firebase_auth] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+148                android:value="com.google.firebase.components.ComponentRegistrar" />
+148-->[:firebase_auth] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+149            <meta-data
+149-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-40:85
+150                android:name="com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar"
+150-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:39:17-128
+151                android:value="com.google.firebase.components.ComponentRegistrar" />
+151-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:40:17-82
+152            <meta-data
+152-->[:firebase_core] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+153                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+153-->[:firebase_core] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+154                android:value="com.google.firebase.components.ComponentRegistrar" />
+154-->[:firebase_core] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+155            <meta-data
+155-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:17:13-19:85
+156                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+156-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:18:17-122
+157                android:value="com.google.firebase.components.ComponentRegistrar" />
+157-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:19:17-82
+158            <meta-data
+158-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:20:13-22:85
+159                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+159-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:21:17-111
+160                android:value="com.google.firebase.components.ComponentRegistrar" />
+160-->[com.google.firebase:firebase-firestore:25.0.0] /home/umer/.gradle/caches/transforms-4/b93cfa55feed012b7989b5c1fa07d7c2/transformed/jetified-firebase-firestore-25.0.0/AndroidManifest.xml:22:17-82
+161            <meta-data
+161-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:69:13-71:85
+162                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+162-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:70:17-109
+163                android:value="com.google.firebase.components.ComponentRegistrar" />
+163-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:71:17-82
+164            <meta-data
+164-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:57:13-59:85
+165                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+165-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:58:17-122
+166                android:value="com.google.firebase.components.ComponentRegistrar" />
+166-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:59:17-82
+167            <meta-data
+167-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:60:13-62:85
+168                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+168-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:61:17-119
+169                android:value="com.google.firebase.components.ComponentRegistrar" />
+169-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:62:17-82
+170            <meta-data
+170-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:37:13-39:85
+171                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+171-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:38:17-139
+172                android:value="com.google.firebase.components.ComponentRegistrar" />
+172-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:39:17-82
+173            <meta-data
+173-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+174                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+174-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+175                android:value="com.google.firebase.components.ComponentRegistrar" />
+175-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+176            <meta-data
+176-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+177                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+177-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+178                android:value="com.google.firebase.components.ComponentRegistrar" />
+178-->[com.google.firebase:firebase-installations:18.0.0] /home/umer/.gradle/caches/transforms-4/97e33c874b051d1707a549e065d0f62a/transformed/jetified-firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+179            <meta-data
+179-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/umer/.gradle/caches/transforms-4/cc50e9764bb70efa70828917613f9093/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+180                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+180-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/umer/.gradle/caches/transforms-4/cc50e9764bb70efa70828917613f9093/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+181                android:value="com.google.firebase.components.ComponentRegistrar" />
+181-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/umer/.gradle/caches/transforms-4/cc50e9764bb70efa70828917613f9093/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+182            <meta-data
+182-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+183                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+183-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+184                android:value="com.google.firebase.components.ComponentRegistrar" />
+184-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+185            <meta-data
+185-->[com.google.firebase:firebase-datatransport:18.2.0] /home/umer/.gradle/caches/transforms-4/25047b0ed1ade8d9496712fc2ee401d8/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:25:13-27:85
+186                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+186-->[com.google.firebase:firebase-datatransport:18.2.0] /home/umer/.gradle/caches/transforms-4/25047b0ed1ade8d9496712fc2ee401d8/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:26:17-115
+187                android:value="com.google.firebase.components.ComponentRegistrar" />
+187-->[com.google.firebase:firebase-datatransport:18.2.0] /home/umer/.gradle/caches/transforms-4/25047b0ed1ade8d9496712fc2ee401d8/transformed/jetified-firebase-datatransport-18.2.0/AndroidManifest.xml:27:17-82
+188        </service>
+189        <service
+189-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-19:72
+190            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService"
+190-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-107
+191            android:exported="false"
+191-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-37
+192            android:permission="android.permission.BIND_JOB_SERVICE" />
+192-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-69
+193        <service
+193-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-26:19
+194            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService"
+194-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-97
+195            android:exported="false" >
+195-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+196            <intent-filter>
+196-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+197                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+197-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+197-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+198            </intent-filter>
+199        </service>
+200
+201        <receiver
+201-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:28:9-35:20
+202            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver"
+202-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-98
+203            android:exported="true"
+203-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-36
+204            android:permission="com.google.android.c2dm.permission.SEND" >
+204-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-73
+205            <intent-filter>
+205-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+206                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+206-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+206-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+207            </intent-filter>
+208        </receiver>
+209
+210        <provider
+210-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:43:9-47:38
+211            android:name="io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider"
+211-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:44:13-102
+212            android:authorities="com.appicator.itp_voice.flutterfirebasemessaginginitprovider"
+212-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:45:13-88
+213            android:exported="false"
+213-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:46:13-37
+214            android:initOrder="99" />
+214-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:47:13-35
+215        <provider
+215-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:9-19:20
+216            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+216-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-82
+217            android:authorities="com.appicator.itp_voice.flutter.image_provider"
+217-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-74
+218            android:exported="false"
+218-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-37
+219            android:grantUriPermissions="true" >
+219-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-47
+220            <meta-data
+220-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-18:75
+221                android:name="android.support.FILE_PROVIDER_PATHS"
+221-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-67
+222                android:resource="@xml/flutter_image_picker_file_paths" />
+222-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:18:17-72
+223        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+224        <service
+224-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-33:19
+225            android:name="com.google.android.gms.metadata.ModuleDependencies"
+225-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-78
+226            android:enabled="false"
+226-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-36
+227            android:exported="false" >
+227-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+228            <intent-filter>
+228-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-28:29
+229                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+229-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-94
+229-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-91
+230            </intent-filter>
+231
+232            <meta-data
+232-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:30:13-32:36
+233                android:name="photopicker_activity:0:required"
+233-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:31:17-63
+234                android:value="" />
+234-->[:image_picker_android] /home/umer/My Data/Learnings/pp/itp_voice/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:32:17-33
+235        </service>
+236
+237        <activity
+237-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:29:9-46:20
+238            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+238-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:30:13-80
+239            android:excludeFromRecents="true"
+239-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:31:13-46
+240            android:exported="true"
+240-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:32:13-36
+241            android:launchMode="singleTask"
+241-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:33:13-44
+242            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+242-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:34:13-72
+243            <intent-filter>
+243-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:35:13-45:29
+244                <action android:name="android.intent.action.VIEW" />
+244-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+244-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+245
+246                <category android:name="android.intent.category.DEFAULT" />
+246-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+246-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+247                <category android:name="android.intent.category.BROWSABLE" />
+247-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+247-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+248
+249                <data
+249-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:41:17-44:51
+250                    android:host="firebase.auth"
+250-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:42:21-49
+251                    android:path="/"
+251-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:43:21-37
+252                    android:scheme="genericidp" />
+252-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:44:21-48
+253            </intent-filter>
+254        </activity>
+255        <activity
+255-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:47:9-64:20
+256            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+256-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:48:13-79
+257            android:excludeFromRecents="true"
+257-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:49:13-46
+258            android:exported="true"
+258-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:50:13-36
+259            android:launchMode="singleTask"
+259-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:51:13-44
+260            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+260-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:52:13-72
+261            <intent-filter>
+261-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:53:13-63:29
+262                <action android:name="android.intent.action.VIEW" />
+262-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:17-69
+262-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:36:25-66
+263
+264                <category android:name="android.intent.category.DEFAULT" />
+264-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:17-76
+264-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:38:27-73
+265                <category android:name="android.intent.category.BROWSABLE" />
+265-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:17-78
+265-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:39:27-75
+266
+267                <data
+267-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:41:17-44:51
+268                    android:host="firebase.auth"
+268-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:42:21-49
+269                    android:path="/"
+269-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:43:21-37
+270                    android:scheme="recaptcha" />
+270-->[com.google.firebase:firebase-auth:23.0.0] /home/umer/.gradle/caches/transforms-4/5e6f000e7787662db3b1b767c74a6816/transformed/jetified-firebase-auth-23.0.0/AndroidManifest.xml:44:21-48
+271            </intent-filter>
+272        </activity>
+273
+274        <receiver
+274-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:29:9-40:20
+275            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+275-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:30:13-78
+276            android:exported="true"
+276-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:31:13-36
+277            android:permission="com.google.android.c2dm.permission.SEND" >
+277-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:32:13-73
+278            <intent-filter>
+278-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-34:29
+279                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+279-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:17-81
+279-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:33:25-78
+280            </intent-filter>
+281
+282            <meta-data
+282-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:37:13-39:40
+283                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+283-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:38:17-92
+284                android:value="true" />
+284-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:39:17-37
+285        </receiver>
+286        <!--
+287             FirebaseMessagingService performs security checks at runtime,
+288             but set to not exported to explicitly avoid allowing another app to call it.
+289        -->
+290        <service
+290-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:46:9-53:19
+291            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+291-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:47:13-82
+292            android:directBootAware="true"
+292-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:48:13-43
+293            android:exported="false" >
+293-->[com.google.firebase:firebase-messaging:24.0.0] /home/umer/.gradle/caches/transforms-4/bc4cbfe8b299770f9e674caf841cddc0/transformed/jetified-firebase-messaging-24.0.0/AndroidManifest.xml:49:13-37
+294            <intent-filter android:priority="-500" >
+294-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-25:29
+295                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+295-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-78
+295-->[:firebase_messaging] /home/umer/My Data/Learnings/pp/itp_voice/build/firebase_messaging/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-75
+296            </intent-filter>
+297        </service>
+298
+299        <property
+299-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:30:9-32:61
+300            android:name="android.adservices.AD_SERVICES_CONFIG"
+300-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:31:13-65
+301            android:resource="@xml/ga_ad_services_config" />
+301-->[com.google.android.gms:play-services-measurement-api:22.0.1] /home/umer/.gradle/caches/transforms-4/2fb8267d853032b017adc5268b0f97d7/transformed/jetified-play-services-measurement-api-22.0.1/AndroidManifest.xml:32:13-58
+302
+303        <provider
+303-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+304            android:name="com.google.firebase.provider.FirebaseInitProvider"
+304-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+305            android:authorities="com.appicator.itp_voice.firebaseinitprovider"
+305-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+306            android:directBootAware="true"
+306-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+307            android:exported="false"
+307-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+308            android:initOrder="100" />
+308-->[com.google.firebase:firebase-common:21.0.0] /home/umer/.gradle/caches/transforms-4/6a53181ddf2ad9993d084f0f4657f317/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+309
+310        <service
+310-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:24:9-32:19
+311            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
+311-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:25:13-94
+312            android:enabled="true"
+312-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:26:13-35
+313            android:exported="false" >
+313-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:27:13-37
+314            <meta-data
+314-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:29:13-31:104
+315                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
+315-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:30:17-76
+316                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
+316-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:31:17-101
+317        </service>
+318
+319        <activity
+319-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:34:9-41:20
+320            android:name="androidx.credentials.playservices.HiddenActivity"
+320-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:35:13-76
+321            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+321-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:36:13-87
+322            android:enabled="true"
+322-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:37:13-35
+323            android:exported="false"
+323-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:38:13-37
+324            android:fitsSystemWindows="true"
+324-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:39:13-45
+325            android:theme="@style/Theme.Hidden" >
+325-->[androidx.credentials:credentials-play-services-auth:1.2.0-rc01] /home/umer/.gradle/caches/transforms-4/f29609ba80c77d72c1ead177ff237ec9/transformed/jetified-credentials-play-services-auth-1.2.0-rc01/AndroidManifest.xml:40:13-48
+326        </activity>
+327        <activity
+327-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+328            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+328-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+329            android:excludeFromRecents="true"
+329-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+330            android:exported="false"
+330-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+331            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+331-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+332        <!--
+333            Service handling Google Sign-In user revocation. For apps that do not integrate with
+334            Google Sign-In, this service will never be started.
+335        -->
+336        <service
+336-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+337            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+337-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+338            android:exported="true"
+338-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+339            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+339-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+340            android:visibleToInstantApps="true" />
+340-->[com.google.android.gms:play-services-auth:20.7.0] /home/umer/.gradle/caches/transforms-4/c011dc6ed3f3d081e0e5129b8d147884/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+341
+342        <activity
+342-->[com.google.android.gms:play-services-base:18.0.1] /home/umer/.gradle/caches/transforms-4/079b555057fc9d4206b5b83e38a022d5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+343            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+343-->[com.google.android.gms:play-services-base:18.0.1] /home/umer/.gradle/caches/transforms-4/079b555057fc9d4206b5b83e38a022d5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+344            android:exported="false"
+344-->[com.google.android.gms:play-services-base:18.0.1] /home/umer/.gradle/caches/transforms-4/079b555057fc9d4206b5b83e38a022d5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+345            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+345-->[com.google.android.gms:play-services-base:18.0.1] /home/umer/.gradle/caches/transforms-4/079b555057fc9d4206b5b83e38a022d5/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+346
+347        <receiver
+347-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:29:9-33:20
+348            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+348-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:30:13-85
+349            android:enabled="true"
+349-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:31:13-35
+350            android:exported="false" >
+350-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:32:13-37
+351        </receiver>
+352
+353        <service
+353-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:35:9-38:40
+354            android:name="com.google.android.gms.measurement.AppMeasurementService"
+354-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:36:13-84
+355            android:enabled="true"
+355-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:37:13-35
+356            android:exported="false" />
+356-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:38:13-37
+357        <service
+357-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:39:9-43:72
+358            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+358-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:40:13-87
+359            android:enabled="true"
+359-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:41:13-35
+360            android:exported="false"
+360-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:42:13-37
+361            android:permission="android.permission.BIND_JOB_SERVICE" />
+361-->[com.google.android.gms:play-services-measurement:22.0.1] /home/umer/.gradle/caches/transforms-4/35eb39beb46a0130b451f09260617dca/transformed/jetified-play-services-measurement-22.0.1/AndroidManifest.xml:43:13-69
+362
+363        <provider
+363-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
+364            android:name="androidx.startup.InitializationProvider"
+364-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:25:13-67
+365            android:authorities="com.appicator.itp_voice.androidx-startup"
+365-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:26:13-68
+366            android:exported="false" >
+366-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:27:13-37
+367            <meta-data
+367-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+368                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+368-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+369                android:value="androidx.startup" />
+369-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/umer/.gradle/caches/transforms-4/2dd37392a300fdf968ca47e2e10bd1b1/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+370            <meta-data
+370-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+371                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+371-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+372                android:value="androidx.startup" />
+372-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+373        </provider>
+374
+375        <uses-library
+375-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+376            android:name="androidx.window.extensions"
+376-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+377            android:required="false" />
+377-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+378        <uses-library
+378-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+379            android:name="androidx.window.sidecar"
+379-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+380            android:required="false" />
+380-->[androidx.window:window:1.2.0] /home/umer/.gradle/caches/transforms-4/cb048cf9e2a68c2499cc2342aa327f1c/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+381        <uses-library
+381-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/umer/.gradle/caches/transforms-4/71a990a05f5a07e630d99a67891a0eac/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+382            android:name="android.ext.adservices"
+382-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/umer/.gradle/caches/transforms-4/71a990a05f5a07e630d99a67891a0eac/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+383            android:required="false" />
+383-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /home/umer/.gradle/caches/transforms-4/71a990a05f5a07e630d99a67891a0eac/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+384
+385        <meta-data
+385-->[com.google.android.gms:play-services-basement:18.3.0] /home/umer/.gradle/caches/transforms-4/48f0f10b27a977c5f81fa3cd56e43c21/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+386            android:name="com.google.android.gms.version"
+386-->[com.google.android.gms:play-services-basement:18.3.0] /home/umer/.gradle/caches/transforms-4/48f0f10b27a977c5f81fa3cd56e43c21/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+387            android:value="@integer/google_play_services_version" />
+387-->[com.google.android.gms:play-services-basement:18.3.0] /home/umer/.gradle/caches/transforms-4/48f0f10b27a977c5f81fa3cd56e43c21/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+388
+389        <receiver
+389-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+390            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+390-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+391            android:directBootAware="false"
+391-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+392            android:enabled="true"
+392-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+393            android:exported="true"
+393-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+394            android:permission="android.permission.DUMP" >
+394-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+395            <intent-filter>
+395-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+396                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+396-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+396-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+397            </intent-filter>
+398            <intent-filter>
+398-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+399                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+399-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+399-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+400            </intent-filter>
+401            <intent-filter>
+401-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+402                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+402-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+402-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+403            </intent-filter>
+404            <intent-filter>
+404-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+405                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+405-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+405-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/umer/.gradle/caches/transforms-4/5502f98d42b8526e7e7c17a7f6b8cb9e/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+406            </intent-filter>
+407        </receiver>
+408
+409        <service
+409-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+410            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+410-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+411            android:exported="false" >
+411-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+412            <meta-data
+412-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+413                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+413-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+414                android:value="cct" />
+414-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /home/umer/.gradle/caches/transforms-4/0421122b8bfe073c966c23a61493c84f/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+415        </service>
+416        <service
+416-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+417            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+417-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+418            android:exported="false"
+418-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+419            android:permission="android.permission.BIND_JOB_SERVICE" >
+419-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+420        </service>
+421
+422        <receiver
+422-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+423            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+423-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+424            android:exported="false" />
+424-->[com.google.android.datatransport:transport-runtime:3.1.9] /home/umer/.gradle/caches/transforms-4/c50161d3c67dc26e39c011873f846f5e/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+425    </application>
+426
+427</manifest>
