@@ -58,7 +58,15 @@ class _MessagesScreenState extends State<MessagesScreen> {
     ColorController cc = Get.find<ColorController>();
 
     // List of filters (you can customize this)
-    final List<String> filters = ['All', 'Unread', 'AI Chats', 'Archived'];
+    final List<String> filters = [
+      'All',
+      'Unread',
+      'AI Chats',
+      'Archived',
+      "AI Flagged",
+      "Threads Read",
+      "User Responded"
+    ];
     return Scaffold(
       backgroundColor: cc.bgcolor.value,
       appBar: AppBar(
@@ -70,7 +78,6 @@ class _MessagesScreenState extends State<MessagesScreen> {
               color: cc.iconcolor.value,
             ), // Hamburger menu icon
             onSelected: (String selectedValue) {
-              
               con.selectedNumber.value = selectedValue; // Set selected number
               con.loadThreads(); // Reload the threads based on the selected number
             },
@@ -153,43 +160,47 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       ),
                     ),
                     Padding(
-  padding: EdgeInsets.only(bottom: 10.h),
-  child: SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: filters.map((filter) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 4.0), // Reduce horizontal spacing
-          child: ChoiceChip(
-            side: const BorderSide(color: Colors.transparent),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)), // Reduce radius for smaller chips
-            ),
-            label: Text(
-              filter,
-              style: TextStyle(
-                color: con.selectedchip.value == filter ? Colors.white : cc.txtcolor.value,
-                fontSize: 14.sp, // Reduce font size
-              ),
-            ),
-            selected: filter == con.selectedchip.value,
-            onSelected: (bool isSelected) {
-              setState(() {
-                print("Selected: $filter");
-                con.selectedchip.value = filter;
-                loadFilter();
-              });
-            },
-            selectedColor: cc.purplecolor.value,
-            backgroundColor: cc.tabcolor.value,
-          ),
-        );
-      }).toList(),
-    ),
-  ),
-),
-
+                      padding: EdgeInsets.only(bottom: 10.h),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: filters.map((filter) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 4.0), // Reduce horizontal spacing
+                              child: ChoiceChip(
+                                side:
+                                    const BorderSide(color: Colors.transparent),
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(
+                                      20)), // Reduce radius for smaller chips
+                                ),
+                                label: Text(
+                                  filter,
+                                  style: TextStyle(
+                                    color: con.selectedchip.value == filter
+                                        ? Colors.white
+                                        : cc.txtcolor.value,
+                                    fontSize: 14.sp, // Reduce font size
+                                  ),
+                                ),
+                                selected: filter == con.selectedchip.value,
+                                onSelected: (bool isSelected) {
+                                  setState(() {
+                                    print("Selected: $filter");
+                                    con.selectedchip.value = filter;
+                                    loadFilter();
+                                  });
+                                },
+                                selectedColor: cc.purplecolor.value,
+                                backgroundColor: cc.tabcolor.value,
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: RefreshIndicator(
                         strokeWidth: 3,
@@ -219,7 +230,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                   ),
                                 ],
 
-                                // https://api.itpscorp.com/portal/itpvoice/v2/6/my-extension/chat/sms/+18882744529?offset=0&limit=15&ai_enabled=true
+                                
                               )
                             : Container(
                                 decoration: BoxDecoration(
@@ -314,7 +325,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                     margin:
                                                         EdgeInsets.symmetric(
                                                             horizontal: 10.w,
-                                                            vertical: 5.h),
+                                                            vertical: 2.h),
                                                     alignment: Alignment.center,
                                                     child: Row(
                                                       mainAxisAlignment:
@@ -365,8 +376,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                                   child:
                                                                       Container(
                                                                     height:
-                                                                        50.h,
-                                                                    width: 50.w,
+                                                                        35.h,
+                                                                    width: 35.w,
                                                                     decoration:
                                                                         const BoxDecoration(
                                                                       borderRadius:
@@ -393,7 +404,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                                               style: TextStyle(
                                                                                 color: cc.msgAvatarClr.value,
                                                                                 fontWeight: FontWeight.w500,
-                                                                                fontSize: 20.sp,
+                                                                                fontSize: 18.sp,
                                                                               ),
                                                                             ),
                                                                           )
@@ -449,7 +460,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                                                 ? FontWeight.w600
                                                                                 : FontWeight.w400,
                                                                             fontSize:
-                                                                                16.sp,
+                                                                                14.sp,
                                                                           ),
                                                                         ),
                                                                         SizedBox(
@@ -477,7 +488,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                                                     ? Icons.mic
                                                                                     : Icons.message,
                                                                             size:
-                                                                                15.sp,
+                                                                                13.sp,
                                                                             color:
                                                                                 cc.iconcolor.value,
                                                                           ),
@@ -491,7 +502,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                                                                 'Empty chat',
                                                                             // style: ts(1, 0xff4F5E7B, 12.sp, 4),
                                                                             style:
-                                                                                TextStyle(fontSize: 13.sp, color: Theme.of(context).colorScheme.tertiary),
+                                                                                TextStyle(fontSize: 12.sp, color: Theme.of(context).colorScheme.tertiary),
                                                                             maxLines:
                                                                                 2,
                                                                             overflow:

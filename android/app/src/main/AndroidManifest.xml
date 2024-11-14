@@ -3,14 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 <uses-permission android:name="android.hardware.sensor.proximity"/>
-<uses-permission android:name="android.permission.BODY_SENSORS"/>
-<uses-permission android:name="android.permission.BODY_SENSORS_BACKGROUND"/>
-<uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
 <uses-permission android:name="android.permission.INTERNET"/>
-
- <uses-sdk tools:overrideLibrary="androidx.fragment" />
-
-<!--  Add this  -->
+<uses-sdk tools:overrideLibrary="androidx.fragment" />
 <uses-feature android:name="android.hardware.camera" android:required="true"/>
 <uses-feature android:name="android.hardware.camera.autofocus"/>
 <uses-permission android:name="android.permission.CAMERA"/>
@@ -26,7 +20,6 @@
 <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"  />
 <uses-permission android:name="android.permission.BLUETOOTH"/>
 <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>

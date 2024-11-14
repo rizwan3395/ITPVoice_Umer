@@ -41,14 +41,20 @@ class MessagesController extends GetxController {
     print(selectedNumber);
     // Apply filter based on the selected chip
      filter = selectedchip.value == "All"
-        ? ""
-        : selectedchip.value == "Unread"
-            ? "&threads_read=false"
-            : selectedchip.value == "AI Chats"
-                ? "&ai_enabled=true"
-                : selectedchip.value == "Archived"
-                    ? "&archived=true"
-                    : "";
+    ? ""
+    : selectedchip.value == "Unread"
+        ? "&threads_read=false"
+        : selectedchip.value == "AI Chats"
+            ? "&ai_enabled=true"
+            : selectedchip.value == "Archived"
+                ? "&archived=true"
+                : selectedchip.value == "AI Flagged"
+                    ? "&ai_flagged=true"
+                    : selectedchip.value == "Threads Read"
+                        ? "&threads_read=true"
+                        : selectedchip.value == "User Responded"
+                            ? "&user_responded=true"
+                            : "";
     hasMoreData = true;
     isloading.value = true;
     
