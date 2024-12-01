@@ -57,6 +57,7 @@ dependencies:
   floating_bottom_bar: ^0.0.3
   audio_waveforms: ^1.0.5
   dio: ^5.6.0
+  audio_session:
   downloads_path_provider_28: ^0.1.2
   chips_choice_null_safety:
     git:
@@ -68,7 +69,9 @@ dependencies:
   injectable: ^2.4.4
   buttons_tabbar: 
   phone_number:
+  flutter_background:
   timeago:
+  wakelock:
   flutter_local_notifications: ^17.0.0
   flutter_masked_text2: ^0.9.1
   flutter_dtmf: ^3.0.2
@@ -83,6 +86,7 @@ dependencies:
   android_intent: ^2.0.2
   flutter_colorpicker: ^1.1.0
   material_color_generator: ^1.1.0
+  url_launcher: ^6.3.1
   # flutter_pjsip: ^0.0.2-dev.2
 
 dev_dependencies:
@@ -96,6 +100,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.13.1
+
 
 flutter_launcher_icons:
   android: "ic_launcher"

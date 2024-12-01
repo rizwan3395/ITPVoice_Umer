@@ -3,11 +3,11 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:itp_voice/routes.dart';
+import 'package:phone_number/phone_number.dart';
 
 class LocalNotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin = FlutterLocalNotificationsPlugin();
 
-  // Android notification channel details
   static const AndroidNotificationChannel _channel = AndroidNotificationChannel(
     'high_importance_channel',
     'High Importance Notifications',
@@ -26,12 +26,10 @@ class LocalNotificationService {
       onDidReceiveBackgroundNotificationResponse: _onDidReceiveBackgroundNotificationResponse,
     );
 
-    // Android: Create notification channel for high-priority notifications
     await _notificationsPlugin
         .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(_channel);
 
-    // Request permission for iOS notifications
     await FirebaseMessaging.instance.requestPermission();
 
     // Listen for foreground messages
@@ -41,11 +39,23 @@ class LocalNotificationService {
       }
     });
 
+    // Handle background and terminated state messages
+    FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
+
     try {
       final token = await FirebaseMessaging.instance.getToken();
       print("Firebase Token: $token");
     } catch (e) {
       print("Error getting Firebase token: $e");
+    }
+  }
+
+  // Background handler function
+  static Future<void> _backgroundMessageHandler(RemoteMessage message) async {
+    print('Handling a background message: ${message.messageId}');
+    if (message.notification != null) {
+      // Create the notification with high priority to show in the notification bar
+      await createanddisplaynotification(message);
     }
   }
 
@@ -88,33 +98,47 @@ class LocalNotificationService {
     }
   }
 
-  // Display notification
-  static void createanddisplaynotification(RemoteMessage message) async {
+  static String extractPhoneNumber(String input) {
+    // Regular expression pattern to match phone numbers
+    final RegExp phoneNumberPattern = RegExp(r'(\+?\d{1,4}[-\s]?\(?\d{1,5}\)?[-\s]?\d{1,5}[-\s]?\d{1,5}[-\s]?\d{1,5})');
+    final match = phoneNumberPattern.firstMatch(input);
+
+    // If a valid phone number is found, return it, otherwise return an empty string
+    if (match != null) {
+      return match.group(0) ?? '';
+    } else {
+      return ''; // Return empty string if no phone number is found
+    }
+  }
+
+  static Future<void> createanddisplaynotification(RemoteMessage message) async {
     try {
       final notification = message.notification;
       final androidNotification = message.notification?.android;
+      final messageText = message.data['message'] ?? '';  // Extract message text
+      // Extract phone number
+      final phoneNumber = extractPhoneNumber(notification?.body ?? '');
 
       if (notification != null && androidNotification != null) {
-        // Prepare Android notification details
         const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
           'high_importance_channel',
           'High Importance Notifications',
           channelDescription: 'This channel is used for important notifications.',
           importance: Importance.high,
-          priority: Priority.high,
+          priority: Priority.high, 
           playSound: true,
+          icon: 'logo',  
         );
 
-        // Notification details
         const NotificationDetails platformDetails = NotificationDetails(
           android: androidDetails,
         );
 
-        // Display notification
+        
         await _notificationsPlugin.show(
           notification.hashCode,
-          notification.title,
-          notification.body,
+          phoneNumber,  // Show only the phone number in the title
+          messageText,  // Show the message content in the body
           platformDetails,
           payload: jsonEncode(message.data), // Pass data as payload
         );
@@ -124,7 +148,3 @@ class LocalNotificationService {
     }
   }
 }
-
-
-
-// https://api.itpscorp.com/portal/crm/auth/reset-pw?username=abc@gmail.com&from=voice360

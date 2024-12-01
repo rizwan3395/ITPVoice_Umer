@@ -33,7 +33,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   
-  
+  String? token = await FirebaseMessaging.instance.getToken();
+  print("FCM Token: $token");
 
   setupLocator();
    // Initialize SharedPreferences before the app starts

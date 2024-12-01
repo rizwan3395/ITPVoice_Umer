@@ -1,21 +1,21 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart' as flwebrtc;
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:itp_voice/routes.dart';
 import 'package:proximity_sensor/proximity_sensor.dart';
 import 'package:sip_ua/sip_ua.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
-import '../main.dart';
 import '../widgets/custom_toast.dart';
 
 class CallScreenController extends GetxController
-    implements SipUaHelperListener {
+    implements SipUaHelperListener, WidgetsBindingObserver {
   RxBool showNumpad = false.obs;
   RxBool audioMuted = false.obs;
   RxBool videoMuted = false.obs;
@@ -41,49 +41,62 @@ class CallScreenController extends GetxController
   RxBool isNear = false.obs;
 
   @override
-  void onClose() {
-    // TODO: implement onClose
-    localStream?.dispose();
-    timer?.cancel();
-    super.onClose();
-  }
-
-  @override
   void onInit() async {
-    // TODO: implement onInit
+    super.onInit();
+    WidgetsBinding.instance.addObserver(this);
+
     call = Get.arguments;
     if (call!.direction == "INCOMING") {
       isIncomingCall!.value = true;
       isIncomingCallAccepted!.value = false;
     }
+
     helper = Get.find<SIPUAHelper>();
     helper!.addSipUaHelperListener(this);
-    // startTimer();
+
     proximityStream = ProximitySensor.events.listen((event) {
-      print('Proximity event: $event');
-      isNear.value = (event > 0) ? true : false;
+      isNear.value = (event > 0);
+      if (isNear.value) {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive); // Dim screen
+      } else {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge); // Restore screen
+      }
     });
+
     await AudioService.init(
       builder: () => MyAudioHandler(controller: this),
       config: const AudioServiceConfig(
-        androidNotificationChannelId: 'com.ryanheise.myapp.channel.audio',
+        androidNotificationChannelId: 'com.yourpackage.app.channel.audio',
         androidNotificationChannelName: 'Audio playback',
         androidNotificationOngoing: true,
+        androidResumeOnClick: true,
       ),
     );
+  }
 
-    super.onInit();
+  @override
+  void onClose() {
+    WidgetsBinding.instance.removeObserver(this);
+    localStream?.dispose();
+    timer?.cancel();
+    proximityStream.cancel();
+    super.onClose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed || state == AppLifecycleState.inactive) {
+      localStream?.getAudioTracks().forEach((track) => track.enabled = true);
+    }
   }
 
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       Duration duration = Duration(seconds: timer.tick);
       if (Get.routing.current == Routes.CALL_SCREEN_ROUTE) {
-        // this.setState(() {
         timeLabel.value = [duration.inMinutes, duration.inSeconds]
             .map((seg) => seg.remainder(60).toString().padLeft(2, '0'))
             .join(':');
-        // });
       } else {
         timer.cancel();
       }
@@ -94,7 +107,7 @@ class CallScreenController extends GetxController
     MediaStream? stream = event.stream;
     event.stream?.getAudioTracks().first.enableSpeakerphone(false);
     localStream = stream;
-    // }
+
     if (event.originator == 'remote') {
       if (remoteRenderer != null) {
         remoteRenderer!.srcObject = stream;
@@ -109,21 +122,18 @@ class CallScreenController extends GetxController
         callState.state == CallStateEnum.UNHOLD) {
       hold.value = callState.state == CallStateEnum.HOLD;
       holdOriginator!.value = callState.originator!;
-      // this.setState(() {});
       return;
     }
 
     if (callState.state == CallStateEnum.MUTED) {
       if (callState.audio!) audioMuted.value = true;
       if (callState.video!) videoMuted.value = true;
-      // this.setState(() {});
       return;
     }
 
     if (callState.state == CallStateEnum.UNMUTED) {
       if (callState.audio!) audioMuted.value = false;
       if (callState.video!) videoMuted.value = false;
-      // this.setState(() {});
       return;
     }
 
@@ -132,114 +142,61 @@ class CallScreenController extends GetxController
     }
 
     if (callState.state == CallStateEnum.FAILED) {
-      // Navigator.pushNamed(context, '/callscreen', arguments: call);
-
       Get.back();
     }
-    print("Session Start Time${call.session.start_time}");
+
     if (call.session.start_time != null) {
       startTimer();
     }
-// call.session.
+
     switch (callState.state) {
       case CallStateEnum.STREAM:
         handelStreams(callState);
         break;
       case CallStateEnum.ENDED:
-        // if (Get.currentRoute == Routes.CALL_SCREEN_ROUTE) {
-        //   Get.back();
-        // }
         Get.back();
         break;
-      case CallStateEnum.FAILED:
-        // _backToDialPad();
-        break;
-      case CallStateEnum.UNMUTED:
-        print("CallStateEnum.UNMUTED");
-        break;
-      case CallStateEnum.MUTED:
-        print("CallStateEnum.MUTED");
-        break;
-      case CallStateEnum.CONNECTING:
-        print("CallStateEnum.CONNECTING");
-        break;
-      case CallStateEnum.PROGRESS:
-        print("CallStateEnum.PROGRESS");
-        break;
-      case CallStateEnum.ACCEPTED:
-        state.value = CallStateEnum.ACCEPTED;
-        print("CallStateEnum.ACCEPTED");
-        break;
-      case CallStateEnum.CONFIRMED:
-        print("CallStateEnum.CONFIRMED");
-        break;
-      case CallStateEnum.HOLD:
-        print("CallStateEnum.HOLD");
-        break;
-      case CallStateEnum.UNHOLD:
-        print("CallStateEnum.UNHOLD");
-        break;
-      case CallStateEnum.NONE:
-        print("CallStateEnum.NONE");
-        break;
-      case CallStateEnum.CALL_INITIATION:
-        print("CallStateEnum.CALL_INITIATION");
-        break;
-      case CallStateEnum.REFER:
-        print("CallStateEnum.REFER");
+      default:
         break;
     }
   }
 
   @override
-  void onNewMessage(SIPMessageRequest msg) {
-    // TODO: implement onNewMessage
-  }
+  void onNewMessage(SIPMessageRequest msg) {}
 
   @override
-  void registrationStateChanged(RegistrationState state) {
-    // TODO: implement registrationStateChanged
-  }
+  void registrationStateChanged(RegistrationState state) {}
 
   @override
-  void transportStateChanged(TransportState state) {
-    // TODO: implement transportStateChanged
-  }
+  void transportStateChanged(TransportState state) {}
 
   void handleDtmf(String tone) {
-    print('Dtmf tone => $tone');
     call!.sendDTMF(tone);
   }
 
   void handleHangup({bool goBack = false}) {
     try {
       call!.hangup();
-      timer!.cancel();
-      goBack ? Get.back() : null;
+      timer?.cancel();
+      if (goBack) Get.back();
     } catch (e) {
-      timer!.cancel();
-      goBack ? Get.back() : null;
-
-      print(e.toString());
+      timer?.cancel();
+      if (goBack) Get.back();
     }
   }
 
   void toggleSpeaker() {
-    // if (localStream != null) {
     speakerOn.value = !speakerOn.value;
-    if (!kIsWeb) {
-      localStream!.getAudioTracks()[0].enableSpeakerphone(speakerOn.value);
-    }
-    // }
+    localStream?.getAudioTracks().forEach((track) {
+      track.enableSpeakerphone(speakerOn.value);
+    });
   }
 
   void turnOffSpeaker() {
-    // if (localStream != null) {
     speakerOn.value = false;
-    if (!kIsWeb) {
-      localStream!.getAudioTracks()[0].enableSpeakerphone(speakerOn.value);
-    }
-    // }
+    localStream?.getAudioTracks().forEach((track) {
+      track.enableSpeakerphone(false);
+    });
   }
 
   void handleAccept() async {
@@ -298,38 +255,98 @@ class CallScreenController extends GetxController
     }
   }
 
-  callStatus() {
-    if (isIncomingCall!.value && !isIncomingCallAccepted!.value) {
-      return "Incoming Call";
-    }
+  @override
+  void onNewNotify(Object ntf) {}
 
-    if (state.value == CallStateEnum.CALL_INITIATION) {
-      return "Calling";
-    }
-    if (state.value == CallStateEnum.CONFIRMED) {
-      return "Ringing";
-    }
+  @override
+  void onNewReinvite(ReInvite event) {}
+
+  @override
+  void didChangeAccessibilityFeatures() {
+    // TODO: implement didChangeAccessibilityFeatures
   }
 
   @override
-  void onNewNotify(Object ntf) {
-    // TODO: implement onNewNotify
+  void didChangeLocales(List<Locale>? locales) {
+    // TODO: implement didChangeLocales
   }
 
   @override
-  void onNewReinvite(ReInvite event) {
-    // TODO: implement onNewReinvite
+  void didChangeMetrics() {
+    // TODO: implement didChangeMetrics
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    // TODO: implement didChangePlatformBrightness
+  }
+
+  @override
+  void didChangeTextScaleFactor() {
+    // TODO: implement didChangeTextScaleFactor
+  }
+
+  @override
+  void didChangeViewFocus(ViewFocusEvent event) {
+    // TODO: implement didChangeViewFocus
+  }
+
+  @override
+  void didHaveMemoryPressure() {
+    // TODO: implement didHaveMemoryPressure
+  }
+
+  @override
+  Future<bool> didPopRoute() {
+    // TODO: implement didPopRoute
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> didPushRoute(String route) {
+    // TODO: implement didPushRoute
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool> didPushRouteInformation(RouteInformation routeInformation) {
+    // TODO: implement didPushRouteInformation
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<AppExitResponse> didRequestAppExit() {
+    // TODO: implement didRequestAppExit
+    throw UnimplementedError();
+  }
+
+  @override
+  void handleCancelBackGesture() {
+    // TODO: implement handleCancelBackGesture
+  }
+
+  @override
+  void handleCommitBackGesture() {
+    // TODO: implement handleCommitBackGesture
+  }
+
+  @override
+  bool handleStartBackGesture(PredictiveBackEvent backEvent) {
+    // TODO: implement handleStartBackGesture
+    throw UnimplementedError();
+  }
+
+  @override
+  void handleUpdateBackGestureProgress(PredictiveBackEvent backEvent) {
+    // TODO: implement handleUpdateBackGestureProgress
   }
 }
 
 class MyAudioHandler extends BaseAudioHandler
-    with
-        QueueHandler, // mix in default queue callback implementations
-        SeekHandler {
-  // mix in default seek callback implementations
-  CallScreenController controller;
+    with QueueHandler, SeekHandler {
+  final CallScreenController controller;
   MyAudioHandler({required this.controller});
-  // The most common callbacks:
+
   @override
   Future<void> play() async {
     if (controller.state.value == CallStateEnum.CONNECTING &&

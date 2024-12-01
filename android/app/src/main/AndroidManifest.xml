@@ -34,7 +34,7 @@
 
 
 
-<meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="itpvoice"/>
+<meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
 <intent-filter>
 <action android:name="android.intent.action.MAIN"/>
 <category android:name="android.intent.category.LAUNCHER"/>
@@ -52,6 +52,10 @@
             <action android:name="android.media.browse.MediaBrowserService" />
         </intent-filter>
         </service>
+        <service
+          android:name=".ForegroundService"
+        android:foregroundServiceType="microphone|mediaPlayback" />
+
 
  <receiver android:name="com.ryanheise.audioservice.MediaButtonReceiver"
             android:exported="true" tools:ignore="Instantiatable" >
