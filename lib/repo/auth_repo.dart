@@ -1,0 +1,601 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:itp_voice/models/call_forwarding_setting_model.dart';
+import 'package:itp_voice/models/get_devices_reponse_model/devices.dart';
+import 'package:itp_voice/models/get_devices_reponse_model/get_devices_reponse_model.dart';
+import 'package:itp_voice/models/login_reponse_model/login_reponse_model.dart';
+import 'package:itp_voice/models/login_request_model.dart';
+import 'package:itp_voice/models/services_response_model/service.dart';
+import 'package:itp_voice/models/services_response_model/services_response_model.dart';
+import 'package:itp_voice/models/user_profile_model/user_profile.dart';
+import 'package:itp_voice/repo/base_requester.dart';
+import 'package:itp_voice/repo/shares_preference_repo.dart';
+import 'package:itp_voice/routes.dart';
+import 'package:itp_voice/storage_keys.dart';
+
+class AuthRepo {
+//   Future getAllPosts() async {
+//     http.Response response;
+//     try {
+//       response = await http.get(
+//         Uri.parse(
+//             "https://accounts.accesscontrol.windows.net/46b48e7d-06a1-4f29-870a-d5cffc2c8e14/tokens/oAuth/2"),
+//         headers: <String, String>{
+//           'Content-Type': 'application/json; charset=UTF-8',
+//           'grant_type': 'client_credentials',
+//           'client_id':
+//               '38947a19-eb00-49f8-acaa-3afa9d2a0755@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//           'client_secret': 'PI71DmpnA+QF7K4F0M3mnqN9fgeW1ep2ZYfyV1Hp/l4=',
+//           'resource':
+//               '00000003-0000-0ff1-ce00-000000000000/martindowgroup.sharepoint.com@46b48e7d-06a1-4f29-870a-d5cffc2c8e14'
+//         },
+//       );
+
+//       if (response.statusCode == 200) {
+//         print(response.body);
+//         return response.body;
+//       } else {
+//         return response.statusCode;
+//       }
+//     } catch (e) {
+//       print(e.toString());
+
+//       return null;
+//     }
+//   }
+
+//   Future<List?> getPosts() async {
+//     print('Remote Service Class');
+
+//     //var client = http.Client();
+
+//     final uri = Uri.parse(
+//         'https://accounts.accesscontrol.windows.net/46b48e7d-06a1-4f29-870a-d5cffc2c8e14/tokens/oAuth/2');
+//     final request = http.Request('GET', uri);
+//     //request.body = '{"grant_type":client_credentials,"client_id":38947a19-eb00-49f8-acaa-3afa9d2a0755@46b48e7d-06a1-4f29-870a-d5cffc2c8e14,"client_secret":PI71DmpnA+QF7K4F0M3mnqN9fgeW1ep2ZYfyV1Hp/l4=,"resource":00000003-0000-0ff1-ce00-000000000000/martindowgroup.sharepoint.com@46b48e7d-06a1-4f29-870a-d5cffc2c8e14}' ;
+
+//     final query_parameters = {
+//       'grant_type': 'client_credentials',
+//       'client_id':
+//           '38947a19-eb00-49f8-acaa-3afa9d2a0755@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//       'client_secret': 'PI71DmpnA+QF7K4F0M3mnqN9fgeW1ep2ZYfyV1Hp/l4=',
+//       'resource':
+//           '00000003-0000-0ff1-ce00-000000000000/martindowgroup.sharepoint.com@46b48e7d-06a1-4f29-870a-d5cffc2c8e14'
+//     };
+//     print('data');
+
+//     final sal_uri = Uri.https(
+//         'accounts.accesscontrol.windows.net',
+//         '46b48e7d-06a1-4f29-870a-d5cffc2c8e14/tokens/oAuth/2',
+//         query_parameters);
+//     http.Response response3 = await http.get(sal_uri);
+
+//     print('--------------after response: ${response3.statusCode}');
+//     // String body = json.encode(data);
+//     // print('json convert: ${body}');
+
+// /*    http.Response response = http.post(Uri.https('accounts.accesscontrol.windows.net', '46b48e7d-06a1-4f29-870a-d5cffc2c8e14/tokens/oAuth/2'),
+//       body: data
+//     );*/
+
+//     final response2 = await request.send().asStream().first;
+
+//     print(response2.toString());
+//     //print('--------------- response 2 status code: ${response2.statusCode}');
+
+//     // final response = await http.get(uri, headers: {
+//     //   'Content-Type': 'application/json'
+//     // });
+//     //Map<dynamic,String> headers = {HttpHeaders.contentTypeHeader:'application/json','Accept':'application/json;odata=verbose'};
+
+//     // http.Response response = await http.post(uri,
+//     //     body: {
+//     //       'grant_type':'client_credentials',
+//     //       'client_id':'38947a19-eb00-49f8-acaa-3afa9d2a0755@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//     //       'client_secret':'PI71DmpnA+QF7K4F0M3mnqN9fgeW1ep2ZYfyV1Hp/l4=',
+//     //       'resource':'00000003-0000-0ff1-ce00-000000000000/martindowgroup.sharepoint.com@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//     //
+//     //     });
+
+//     // print('------------- status code: ${response.statusCode}');
+
+//     // var response = await client.get(uri,body:
+//     // {
+//     // 'grant_type':'client_credentials',
+//     // 'client_id':'38947a19-eb00-49f8-acaa-3afa9d2a0755@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//     // 'client_secret':'PI71DmpnA+QF7K4F0M3mnqN9fgeW1ep2ZYfyV1Hp/l4=',
+//     // 'resource':'00000003-0000-0ff1-ce00-000000000000/martindowgroup.sharepoint.com@46b48e7d-06a1-4f29-870a-d5cffc2c8e14',
+//     //
+//     // } );
+
+//     // try{
+//     //   if(response.statusCode==200)
+//     //   {
+//     //     var json = response2.body;
+//     //     print('remote service Authentication Success');
+//     //     print(response.toString());
+//     //     return postsModalFromJson(json).toList();
+//     //   }
+//     //   else{
+//     //     const Text('The server is not responding.');
+//     //   }
+//     // }
+//     // catch(e){
+//     //   print('Salman  $e');
+//     // }
+//   }
+
+///////////
+
+  loginUser(String email, String password, bool rememberMe) async {
+    LoginRequestModel body =
+        LoginRequestModel(username: email, password: password);
+    Map loginBody = body.toMap();
+    await FirebaseMessaging.instance.deleteToken();
+    loginBody['mobile_device_id'] = await FirebaseMessaging.instance.getToken();
+    print('DEVICE TOKEN: ${loginBody['mobile_device_id']}');
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePostAPI(
+        Endpoints.LOGIN_URL, jsonEncode(loginBody),
+        protected: false);
+    print("--------api response---------");
+    print(apiResponse.toString());
+    if (apiResponse != null) {
+      try {
+        if (apiResponse['errors']) {
+          return apiResponse['message'];
+        } else {
+          print("--------api response-----1----");
+          LoginReponseModel response = LoginReponseModel.fromMap(apiResponse);
+          SharedPreferencesMethod.setString(
+              StorageKeys.REFRESH_TOKEN, response.result!.refreshToken);
+          SharedPreferencesMethod.setString(
+              StorageKeys.TIME_ZONE, response.result!.timeZone);
+          final devicesApiResponse = await getDevices();
+          if (devicesApiResponse.runtimeType == String) {
+            print("--------api response-----2----");
+            SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+            return devicesApiResponse;
+          } else if (devicesApiResponse) {
+            print("--------api response-----3----");
+            var userIdApiResponse = await getUserID();
+            if (userIdApiResponse.runtimeType == String) {
+              SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+
+              return userIdApiResponse;
+            }
+            if (userIdApiResponse) {
+              print("--------api response-----4----");
+              SharedPreferencesMethod.setString(
+                  StorageKeys.ACCESS_TOKEN, response.result!.accessToken);
+              SharedPreferencesMethod.setbool(StorageKeys.REMEMBER, rememberMe);
+
+              if (rememberMe) {
+                print("--------api response-----5----");
+                SharedPreferencesMethod.setString(StorageKeys.EMAIL, email);
+                SharedPreferencesMethod.setString(
+                    StorageKeys.PASSWORD, password);
+              } else {
+                print("--------api response-----6----");
+                SharedPreferencesMethod.storage.remove(StorageKeys.EMAIL);
+                SharedPreferencesMethod.storage.remove(StorageKeys.PASSWORD);
+              }
+
+              SharedPreferencesMethod.setString(
+                  StorageKeys.REFRESH_TOKEN, response.result!.refreshToken);
+              SharedPreferencesMethod.setString(StorageKeys.APPUSER_DATA,
+                  json.encode(response.result!.toMap()));
+              SharedPreferencesMethod.getUserData();
+              return true;
+              // SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+            } else {
+              return "Something went wrong";
+            }
+          }
+        }
+      } catch (e) {
+        print(e.toString());
+        // SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+
+        return "Something went wrong";
+      }
+    }
+  }
+
+  reLoginUser() async {
+    String email = SharedPreferencesMethod.getString(StorageKeys.EMAIL)!;
+    String password = SharedPreferencesMethod.getString(StorageKeys.PASSWORD)!;
+    LoginRequestModel body =
+        LoginRequestModel(username: email, password: password);
+    final apiResponse = await BaseRequesterMethods.baseRequester
+        .basePostAPI(Endpoints.LOGIN_URL, body.toJson(), protected: false);
+    if (apiResponse != null) {
+      try {
+        if (apiResponse['errors']) {
+          return apiResponse['message'];
+        } else {
+          LoginReponseModel response = LoginReponseModel.fromMap(apiResponse);
+
+          SharedPreferencesMethod.setString(
+              StorageKeys.REFRESH_TOKEN, response.result!.refreshToken);
+
+          SharedPreferencesMethod.setString(
+              StorageKeys.ACCESS_TOKEN, response.result!.accessToken);
+          return true;
+          // final devicesApiResponse = await getDevices();
+          // if (devicesApiResponse.runtimeType == String) {
+          //   SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+          //   return devicesApiResponse;
+          // } else if (devicesApiResponse) {
+          // SharedPreferencesMethod.setbool(StorageKeys.REMEMBER, rememberMe);
+
+          // if (rememberMe) {
+          //   SharedPreferencesMethod.setString(StorageKeys.EMAIL, email);
+          //   SharedPreferencesMethod.setString(StorageKeys.PASSWORD, password);
+          // } else {
+          //   SharedPreferencesMethod.storage.remove(StorageKeys.EMAIL);
+          //   SharedPreferencesMethod.storage.remove(StorageKeys.PASSWORD);
+          // }
+
+          //   SharedPreferencesMethod.setString(
+          //       StorageKeys.REFRESH_TOKEN, response.result!.refreshToken);
+          //   SharedPreferencesMethod.setString(StorageKeys.APPUSER_DATA,
+          //       json.encode(response.result!.toMap()));
+          //   SharedPreferencesMethod.getUserData();
+          //   return true;
+          // }
+        }
+      } catch (e) {
+        print(e.toString());
+        return "Something went wrong";
+      }
+    }
+  }
+
+  logoutUser() async {
+    await SharedPreferencesMethod.storage.remove(StorageKeys.ACCESS_TOKEN);
+    await SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
+    await SharedPreferencesMethod.storage.remove(StorageKeys.APPUSER_DATA);
+    await SharedPreferencesMethod.storage.remove(StorageKeys.TIME_ZONE);
+    await FirebaseMessaging.instance.deleteToken();
+    try {
+      await BaseRequesterMethods.baseRequester.baseGetAPI(Endpoints.LOGOUT_URL);
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  getRealm() async {
+    print("''''========getRealm line 260 auth repo--'1---'");
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    print("''''========getRealm line 260 auth repo--''2----'$apiId'");
+
+    final apiResponse = await BaseRequesterMethods.baseRequester
+        .baseGetAPI(Endpoints.GET_ACCOUNT_DETAILS(apiId));
+    print("''''========getRealm line 260 auth repo--''3----'$apiResponse'");
+    if (!apiResponse['errors']) {
+      SharedPreferencesMethod.storage
+          .setString(StorageKeys.REALM, apiResponse['result']['realm']);
+      return true;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  getUserID() async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    print("I am API ID${StorageKeys.API_ID}");
+    final apiResponse = await BaseRequesterMethods.baseRequester
+        .baseGetAPI(Endpoints.GET_USER_DATA(apiId));
+    print("I am API response$apiResponse");
+    if (apiResponse['message'] == "User details") {
+      SharedPreferencesMethod.storage.setString(
+          StorageKeys.USER_ID, apiResponse['result']['pk'].toString());
+
+      SharedPreferencesMethod.storage.setString(StorageKeys.EXTENTION,
+          apiResponse['result']['presence_id'].toString());
+
+      SharedPreferencesMethod.storage.setString(
+          StorageKeys.DEFAULT_NUMBER,
+          apiResponse['result']['voice_account']
+                  ['default_outbound_callerid_number']
+              .toString());
+      print("USER ID : ${apiResponse['result']['pk']}");
+      return true;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  getServices() async {
+    final apiResponse = await BaseRequesterMethods.baseRequester
+        .baseGetAPI(Endpoints.SERVICES_URL);
+    if (!apiResponse['errors']) {
+      // try {} catch (e) {}
+      ServicesResponseModel response =
+          ServicesResponseModel.fromMap(apiResponse);
+      try {
+        // for(int i =0;i<response.message
+        List<Services> itpVoiceServices = response.services!
+            .where((element) => element.product!.itemType == "itp_voice")
+            .toList();
+        if (itpVoiceServices.length > 1) {
+          return itpVoiceServices;
+        }
+        if (itpVoiceServices.length == 1) {
+          SharedPreferencesMethod.storage.setString(
+              StorageKeys.API_ID, itpVoiceServices[0].apiId.toString());
+          return true;
+        }
+      } catch (e) {
+        return "Something went wrong";
+      }
+    } else {
+      return apiResponse['message'];
+    }
+    // final apiResponse = await requester.baseGetAPI(E);
+  }
+
+  getDevices() async {
+    print("''''========get devices line 314 auth repo--''1---''");
+    final servicesApiResponse = await getServices();
+    print("''''========get devices line 314 auth repo--''2----''");
+    if (servicesApiResponse.runtimeType == String) {
+      return servicesApiResponse;
+    }
+    if (servicesApiResponse) {
+      print(
+          "''''========get devices line 314 auth repo--''3----'$servicesApiResponse'");
+      final realmApiResponse = await getRealm();
+      print("''''========get devices line 314 auth repo--''333----''");
+      if (realmApiResponse.runtimeType == String) {
+        return realmApiResponse;
+      } else {
+        print("''''========get devices line 314 auth repo--'4---''");
+        String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+        final apiResponse = await BaseRequesterMethods.baseRequester
+            .baseGetAPI(Endpoints.GET_DEVICES_URL(apiId));
+        if (!apiResponse['errors']) {
+          GetDevicesReponseModel response =
+              GetDevicesReponseModel.fromMap(apiResponse);
+          try {
+            Devices appPhone = response.devices!.firstWhere(
+              (element) => element.deviceType == "app_phone",
+            );
+            SharedPreferencesMethod.setString(
+              StorageKeys.DEVICE,
+              json.encode(
+                appPhone.toMap(),
+              ),
+            );
+            return true;
+          } on StateError {
+            return "No registered device found";
+          }
+        } else {
+          return apiResponse['message'];
+        }
+      }
+    }
+  }
+
+  getProfile() async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    UserProfile? profile;
+    final apiResponse = await BaseRequesterMethods.baseRequester.baseGetAPI(
+      Endpoints.USER_PROFILE,
+    );
+    if (!apiResponse['errors']) {
+      UserProfile reponse = UserProfile.fromMap(apiResponse);
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  editProfile(firstName, lastName, phone, mobile, fax, timezone) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    UserProfile? profile;
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.USER_PROFILE,
+        jsonEncode({
+          "firstname": "$firstName",
+          "lastname": "$lastName",
+          "phone": "$phone",
+          "mobile": "$mobile",
+          "fax": "$fax",
+          "ui_color_mode": "light",
+          "time_zone": "$timezone"
+        }),
+        protected: true);
+    if (!apiResponse['errors']) {
+      UserProfile reponse = UserProfile.fromMap(apiResponse);
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  changePass(password) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    UserProfile? profile;
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.USER_PROFILE, jsonEncode({password: "$password"}),
+        protected: true);
+    if (!apiResponse['errors']) {
+      UserProfile reponse = UserProfile.fromMap(apiResponse);
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  Future<List<String>> getChatNumbers() async {
+    List<String> numbers = <String>[];
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+    if (apiId != null) {
+      try {
+        final apiResponse = await BaseRequesterMethods.baseRequester
+            .baseGetAPI(Endpoints.GET_CHAT_NUMBERS_URL(apiId));
+        if (apiResponse.runtimeType == 1.runtimeType) {
+          throw (401);
+        }
+        if (!apiResponse['errors']) {
+          for (var numberData in apiResponse["result"]) {
+            numbers.add(numberData["number"]);
+          }
+        }
+      } catch (e) {
+        if (e.toString() == "401") {
+          throw ("401");
+        }
+        null;
+      }
+    }
+    print("NUMBERS: $numbers");
+
+    return numbers;
+  }
+
+  getSettings() async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    try {
+      final apiResponse = await BaseRequesterMethods.baseRequester.baseGetAPI(
+        Endpoints.GET_SETTINGS(apiId),
+      );
+      // print("START_________________________________________________________");
+      print(apiResponse.toString());
+
+      CallForwardSettings reponse =
+          CallForwardSettings.fromJson(apiResponse['result']);
+
+      // GetContactsReponseModel reponse =
+      //     GetContactsReponseModel.fromMap(apiResponse);
+
+      return reponse;
+    } catch (e) {
+      print(e.toString());
+      return "Something went wrong";
+    }
+  }
+
+  getSettingsVoice() async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    try {
+      final apiResponse = await BaseRequesterMethods.baseRequester.baseGetAPI(
+        Endpoints.GET_SETTINGS_VOICE(apiId),
+      );
+      // print("START_________________________________________________________");
+      print(apiResponse.toString());
+
+      VoicemailDetails reponse =
+          VoicemailDetails.fromJson(apiResponse['result']);
+
+      // GetContactsReponseModel reponse =
+      //     GetContactsReponseModel.fromMap(apiResponse);
+
+      return reponse;
+    } catch (e) {
+      print(e.toString());
+      return "Something went wrong";
+    }
+  }
+
+  Future<dynamic> forgetPassword(String email) async {
+  final String endpoint = "https://api.itpscorp.com/portal/crm/auth/reset-pw";
+  final String url = "$endpoint?username=$email&from=voice360";
+
+  try {
+    // Making the GET request
+    final response = await http.get(Uri.parse(url));
+
+    // Checking for a successful response (status code 200)
+    if (response.statusCode == 200) {
+      final apiResponse = jsonDecode(response.body);
+
+      if (!apiResponse['errors']) {
+        print(apiResponse['message']);
+        print("I am done");
+        return true;
+      } else {
+        return apiResponse['message'];
+      }
+    } else {
+      // Handle non-200 responses
+      return 'Failed to connect to the server. Status code: ${response.statusCode}';
+    }
+  } catch (e) {
+    // Handle any exceptions
+    return 'An error occurred: $e';
+  }
+}
+
+  setEnableCallForwarding(body, status) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.GET_SETTINGS(apiId), jsonEncode({"$body": status}),
+        protected: true);
+    if (!apiResponse['errors']) {
+      print("I am done ");
+      bool reponse = true;
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  setEnableVoice(body, status) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.GET_SETTINGS_VOICE(apiId), jsonEncode({"$body": status}),
+        protected: true);
+    if (!apiResponse['errors']) {
+      print("I am done ");
+      bool reponse = true;
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  setCallForwardingNumber(status) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.GET_SETTINGS(apiId),
+        jsonEncode({"callforward_number": status}),
+        protected: true);
+    if (!apiResponse['errors']) {
+      print("I am done and i have changed the call forwarding number");
+      bool reponse = true;
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+
+  setCallerId(name, number) async {
+    String? apiId = SharedPreferencesMethod.getString(StorageKeys.API_ID);
+
+    final apiResponse = await BaseRequesterMethods.baseRequester.basePatchAPI(
+        Endpoints.GET_SETTINGS(apiId),
+        jsonEncode({
+          "default_outbound_callerid_number": number,
+          "default_outbound_callerid_name":name
+        }),
+        protected: true);
+    if (!apiResponse['errors']) {
+      print("I am done and i have changed the callerID");
+      bool reponse = true;
+      return reponse;
+    } else {
+      return apiResponse['message'];
+    }
+  }
+}
