@@ -164,7 +164,7 @@ class Endpoints {
   }
 
   static String GET_ACCOUNT_DETAILS(apiId) {
-    return Config.BASE_URL_ITP_VOICE + "$apiId";
+    return Config.BASE_URL_ITP_VOICE + "$apiId/my-extension";
   }
 
   static String EDIT_LIST_NAME(apiId, listId) {

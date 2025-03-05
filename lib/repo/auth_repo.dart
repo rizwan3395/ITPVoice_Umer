@@ -140,7 +140,7 @@ class AuthRepo {
         Endpoints.LOGIN_URL, jsonEncode(loginBody),
         protected: false);
     print("--------api response---------");
-    print(apiResponse.toString());
+    print(apiResponse);
     if (apiResponse != null) {
       try {
         if (apiResponse['errors']) {
@@ -197,7 +197,10 @@ class AuthRepo {
       } catch (e) {
         print(e.toString());
         // SharedPreferencesMethod.storage.remove(StorageKeys.REFRESH_TOKEN);
-
+        if(apiResponse=="Invalid credentials"){
+          return "Invalid credentials";
+        }
+        
         return "Something went wrong";
       }
     }
@@ -279,7 +282,7 @@ class AuthRepo {
           .setString(StorageKeys.REALM, apiResponse['result']['realm']);
       return true;
     } else {
-      return apiResponse['message'];
+      return apiResponse['result'];
     }
   }
 
@@ -304,7 +307,7 @@ class AuthRepo {
       print("USER ID : ${apiResponse['result']['pk']}");
       return true;
     } else {
-      return apiResponse['message'];
+      return apiResponse['result'];
     }
   }
 
@@ -332,7 +335,7 @@ class AuthRepo {
         return "Something went wrong";
       }
     } else {
-      return apiResponse['message'];
+      return apiResponse['result'];
     }
     // final apiResponse = await requester.baseGetAPI(E);
   }

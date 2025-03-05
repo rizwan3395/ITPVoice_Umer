@@ -67,7 +67,7 @@ class BaseRequester {
       print("------base request.dart-----baseGetAPI----2---${response.body}");
       _logRequestOnAlice(response);
       print("------base request.dart----line no 68-Url----3---");
-      
+
       // log(response.body.toString());
       if (loading == true && loading != null) {
         CustomLoader.dismisLoader();
@@ -138,7 +138,6 @@ class BaseRequester {
         CustomLoader.dismisLoader();
       }
       CustomToast.showToast(
-        
           "There seems to be your network problem or a server side issue. Please try again or report the bug to the manager.",
           false);
 
@@ -236,6 +235,11 @@ class BaseRequester {
         _authRepo.logoutUser();
         final bool rememberMe =
             SharedPreferencesMethod.getBool(StorageKeys.REMEMBER)!;
+        if (response.body.contains("Invalid credentials")){
+         
+          return "Invalid credentials";
+        }
+        else 
         if (rememberMe) {
           Get.offAllNamed(Routes.LOGIN_SCREEN_ROUTE);
           CustomToast.showToast("Session expired, Please login again", true);
