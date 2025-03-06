@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.itpVoice</string>
+	<string>com.let.itpvoice360</string>
 	<key>PROJECT_ID</key>
 	<string>itpvoice-9ea83</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:876937112371:ios:f7414eb5c638472192ec46</string>
+	<string>1:876937112371:ios:6edc2e042b0e3d4892ec46</string>
 </dict>
 </plist>
