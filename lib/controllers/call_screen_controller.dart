@@ -421,15 +421,18 @@ class MicService extends TaskHandler {
   void onRepeatEvent(DateTime timestamp) {
     // not use
   }
-
-
-
-
-
-
+  
   @override
-  Future<void> onDestroy(DateTime timestamp) async {
-
+  Future<void> onDestroy(DateTime timestamp, bool isTimeout) {
+    // TODO: implement onDestroy
+    throw UnimplementedError();
   }
+
+
+
+
+
+
+
 
 }

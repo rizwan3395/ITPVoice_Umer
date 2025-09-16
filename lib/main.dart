@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:itp_voice/app_theme.dart';
 import 'package:itp_voice/controllers/bindings.dart';
 import 'package:itp_voice/controllers/mic_controller.dart';
+import 'package:itp_voice/firebase_options.dart';
 import 'package:itp_voice/locator.dart';
 import 'package:itp_voice/notification_service.dart';
 import 'package:itp_voice/routes.dart';
@@ -17,7 +18,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest_all.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // await setupFlutterNotifications();
   // showFlutterNotification(message);
   // If you're going to use other Firebase services in the background, such as Firestore,
@@ -27,10 +30,21 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  try{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  }
+  catch(e,stack){
+    print("Firebase initialization error___________________________: $e $stack");
+  }
   MicServices.instance.init();
   String? token = await FirebaseMessaging.instance.getToken();
   print("FCM Token: $token");
+
+  
 
   setupLocator();
    // Initialize SharedPreferences before the app starts
